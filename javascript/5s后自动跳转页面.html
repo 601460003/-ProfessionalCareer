@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="page">错误页面404</div>
+</body>
+</html>
+<script>
+    window.setTimeout(goIndexPage,1000);
+    var count=10;
+    var i=0;
+    function goIndexPage(){
+        var div=document.getElementById("page");
+        count--;
+        div.innerHTML="<a href='https://www.baidu.com'>本页面"+count+"s后跳转到网站首页</a>";
+        if(count<=2){
+            window.location.href="https://www.baidu.com";
+        }else{
+            //如果此处直接调用 goIndexPage();则起不到等待5s的效果，而是一闪而过，直接5此结束
+            window.setTimeout(goIndexPage,1000);
+        }
+
+
+    }
+
+
+</script>

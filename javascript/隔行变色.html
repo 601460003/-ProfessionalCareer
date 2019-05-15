@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body{
+            height: 500px;
+            width: 270px;
+        }
+        ul{
+            list-style: none;
+        }
+        span{
+            margin-left: 10px;
+            color: #000;
+        }
+        .emp{
+            background-color: red!important;/*因为会出现两个样式，为了使这个样式优先级最高*/
+        }
+
+    </style>
+    <script>
+        window.onload=function(){
+            function $(id){
+                return document.getElementById(id);
+            }
+            var list=document.getElementsByTagName("li");
+            for(var i=0;i<list.length-1;++i){
+                if(i%2==0){
+                    list[i].style.backgroundColor="#ccc";
+                }
+                list[i].onmouseover=function(){//鼠标经过li的时候，当前的底色变亮
+                    this.className="emp";//切记此处只能用this 不能用list[i],i遍历完后都是10，list[10]
+
+                }
+                list[i].onmouseout=function(){
+                    this.className="";
+                }
+
+            }
+        }
+
+    </script>
+</head>
+<body>
+<ul>
+    <li><span>上证指数</span><span>3641</span><span>10-5</span><span>0.16%</span></li>
+    <li><span>上证指数</span><span>3641</span><span>10-5</span><span>0.16%</span></li>
+    <li><span>上证指数</span><span>3641</span><span>10-5</span><span>0.16%</span></li>
+    <li><span>上证指数</span><span>3641</span><span>10-5</span><span>0.16%</span></li>
+    <li><span>上证指数</span><span>3641</span><span>10-5</span><span>0.16%</span></li>
+    <li><span>上证指数</span><span>3641</span><span>10-5</span><span>0.16%</span></li>
+    <li><span>上证指数</span><span>3641</span><span>10-5</span><span>0.16%</span></li>
+    <li><span>上证指数</span><span>3641</span><span>10-5</span><span>0.16%</span></li>
+    <li><span>上证指数</span><span>3641</span><span>10-5</span><span>0.16%</span></li>
+    <li><span>上证指数</span><span>3641</span><span>10-5</span><span>0.16%</span></li>
+</ul>
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        window.onload=function(){
+            var btn=document.getElementById("btn");
+            var timer=null;
+            btn.onclick=function(){
+                // 先清除掉计时器
+                window.clearInterval(timer); //方案1: 在发起每一次的计时器时，先清除之前的触发器
+                var count=5;
+                btn.disabled=true;   // 方案2：如果不设置这个，就会出现，点击触发多个计时器
+                timer= window.setInterval(sendMessage,1000);
+                var that=this;//把btn对象指向that
+                function sendMessage(){
+                    count--;
+                    if(count==0){
+                        window.clearInterval(timer);//如果不停止计时器，则不会不断继续
+                        that.innerHTML="点击重新发送短信";//若此时使用this对象，指向的是函数的调用者window
+                        that.disabled=false;
+                        count=5;//务必要设置初值，否则下次运行计时器，count变为0；。则只能只用一次
+                    }else {
+                        that.innerHTML = "还剩余：" + count + "秒";
+                    }
+
+                }
+
+            }
+
+        }
+    </script>
+</head>
+<body>
+<input type="text"/><button id="btn">点击发送短信</button>
+</body>
+</html>

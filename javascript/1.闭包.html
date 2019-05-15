@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function a(){
+        var n = 0;
+        this.inc = function () {
+            n++;
+            console.log(n);
+        };
+    }
+    var c = new a();
+    console.log(c.inc())
+    console.log(c.inc())
+</script>
+
+
+<p>
+    <h4>什么是闭包？这就是闭包！</h4>
+    有权访问另一个函数作用域内变量的函数都是闭包。这里 inc 函数访问了构造函数 a 里面的变量 n，所以形成了一个闭包。 再来看一段代码：
+</p>
+</body>
+</html>

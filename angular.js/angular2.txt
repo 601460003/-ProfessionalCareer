@@ -1,0 +1,13 @@
+                                                       Angular生命周期钩子函数
+
+ngOnChanges：当Angular设置其接收当前和上一个对象值的数据绑定属性时响应。
+ngOnInit：在第一个ngOnChange触发器之后，初始化组件/指令。这是最常用的方法，用于从后端服务检索模板的数据。
+ngDoCheck：检测并在Angular上下文发生变化时执行。每次更改检测运行时，会被调用。
+ngOnDestroy：在Angular销毁指令/组件之前清除。取消订阅可观察的对象并脱离事件处理程序，以避免内存泄漏。
+
+组件特定hooks：
+
+ngAfterContentInit：组件内容已初始化完成
+ngAfterContentChecked：在Angular检查投影到其视图中的绑定的外部内容之后。
+ngAfterViewInit：Angular创建组件的视图后。
+ngAfterViewChecked：在Angular检查组件视图的绑定之后。

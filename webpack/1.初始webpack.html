@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>webpack成神之路</title>
+</head>
+<body>
+<h1>webpack成神之路</h1>
+<p>
+    打包：可以把多个Javascript文件打包成一个文件，减少服务器压力和下载带宽。</br>
+    转换：把拓展语言转换成为普通的JavaScript，让浏览器顺利运行。</br>
+    优化：前端变的越来越复杂后，性能也会遇到问题，而WebPack也开始肩负起了优化和提升性能的责任。
+</p>
+<p>
+    require是赋值过程，其实require的结果就是对象、数字、字符串、函数等，再把require的结果赋值给某个变量</br>
+    import是解构过程，但是目前所有的引擎都还没有实现import，我们在node中使用babel支持ES6，也仅仅是将ES6转码为ES5再执行，import语法会被转码为require
+</p>
+
+
+<script>
+    module.exports={
+        //入口文件的配置项
+        entry:{},
+        //出口文件的配置项
+        output:{},
+        //模块：例如解读CSS,图片如何转换，压缩
+        module:{},
+        //插件，用于生产模版和各项功能
+        plugins:[],
+        //配置webpack开发服务功能
+        devServer:{}
+    }
+    const path = `require`('path');
+    module.exports={
+        //入口文件的配置项
+        entry:{
+            entry:'./src/entry.js'
+        },
+        //出口文件的配置项
+        output:{
+            //输出的路径，用了Node语法
+            path:path.resolve(__dirname,'dist'),
+            //输出的文件名称
+            filename:'bundle.js'
+        },
+        //模块：例如解读CSS,图片如何转换，压缩
+        module:{},
+        //插件，用于生产模版和各项功能
+        plugins:[],
+        //配置webpack开发服务功能
+        devServer:{}
+    }
+</script>
+</body>
+</html>

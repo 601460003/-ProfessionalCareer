@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        ul li {
+            list-style: none;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            width: 500px;
+            height: auto; /*auto设置自动高度，上下额可以设置padding 设置间隔*/
+            border: 1px solid black;
+            margin: 100px auto;
+            padding: 10px;
+        }
+
+        textarea {
+            resize: none; /*固定大小*/
+
+        }
+
+        li {
+            margin-left: 75px;
+            border-bottom: 1px dotted black;
+        }
+
+        li a {
+            float: right;
+        }
+
+    </style>
+    <script>
+        window.onload = function () {
+            var btn = document.getElementById("btn");
+            //新建ul
+            var i = 0;
+            ul = document.createElement("ul");
+            btn.parentNode.appendChild(ul);
+            btn.onclick = function () {
+                var text = document.getElementById("text");
+                if (text.value == "") {
+                    alert("不能为空");
+                    return;
+                }
+                var child = ul.children;
+                var li = document.createElement("li");
+                li.innerHTML = text.value + "<a href = 'javascript:;'>删除</a>";
+                if (child.length == 0) {
+                    ul.appendChild(li);
+                } else {
+                    ul.insertBefore(li, child[0]);
+                }
+                text.value = "";
+                //btn点击事件中，加入删除事件，若放在外面，和btn点击事件并列，则无a标签，则为空
+                var a = document.getElementsByTagName("a");
+                for (var i = 0; i < a.length; ++i) {
+                    a[i].onclick = function () {
+                        ul.removeChild(this.parentNode);
+                    }
+
+                }
+            }
+
+
+        }
+    </script>
+</head>
+<body>
+<div class="box">
+    <div>
+        微博发布: <textarea name="" id="text" cols="50" rows="10"></textarea>
+        <button id="btn">发布</button>
+        <!--此处存放评论-->
+    </div>
+
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,34 @@
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+    </style>
+    <script>
+        window.onload=function(){
+             var endTime=new Date("2017-2-13 21:36");   //先给出未来的时间
+             window.setInterval(fn,1000);//每一秒刷新一次
+             function fn(){
+                 var time=new Date();
+                 var seconds=parseInt((endTime.getTime()-time.getTime())/1000);
+                 //接下来根据秒来算时间
+                 var day=parseInt(seconds/3600/24);
+                 var hour=parseInt(seconds/3600%24);
+                 var min=parseInt(seconds/60%60);
+                 var sec=parseInt(seconds%60);
+                 day<9 ? day="0"+day:day;
+                 hour<9 ? hour="0"+hour:hour;
+                 min<9 ? min="0"+min:min;
+                 sec<9 ? sec="0"+sec:sec;
+                 document.getElementById("time").innerHTML="距离最后秒杀还有："+day+"天"+hour+"小时"+min+"分钟"+sec+"秒";
+             }
+        }
+
+    </script>
+</head>
+<body>
+<div id="time"></div>
+</body>
+</html>
