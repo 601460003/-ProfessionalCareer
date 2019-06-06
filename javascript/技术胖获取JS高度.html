@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<style>
+    #order-list{
+        background: wheat;
+        width: 100%;
+    }
+    *{
+        padding: 0;
+        margin: 0;
+    }
+</style>
+<div id="order-list"></div>
+<script>
+    var orderHeight=document.documentElement.clientHeight;
+    document.getElementById("order-list").style.height=orderHeight+'px';
+    console.log(orderHeight)
+</script>
+</body>
+</html>
