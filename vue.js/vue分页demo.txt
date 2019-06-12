@@ -1,0 +1,53 @@
+<template>
+  <div class="title">
+    <div class="container_table">
+      <el-table :data="tableData.slice((currentPage-1)*pagesize,currentPage*pagesize)">
+        <el-table-column prop="appname"></el-table-column>
+      </el-table>
+      <el-pagination class="fy"
+                     layout="prev, pager, next"
+                     @current-change="current_change"
+                     :total="total"
+                     background
+      >
+      </el-pagination>
+    </div>
+  </div>
+</template>
+<script>
+  export default {
+    data() {
+      return {
+        total: 100,//默认数据总数
+        pagesize: 3,//每页的数据条数
+        currentPage: 1,//默认开始页面
+        tableData: [
+          {appname: '1喵喵直播'},
+          {appname: '2喵喵直播'},
+          {appname: '3喵喵直播'},
+          {appname: '4喵喵直播'},
+          {appname: '5喵喵直播'},
+          {appname: '6喵喵直播'},
+          {appname: '7喵喵直播'},
+          {appname: '8喵喵直播'},
+          {appname: '9喵喵直播'},
+          {appname: '10喵喵直播'},
+          {appname: '11喵喵直播'},
+          {appname: '12喵喵直播'},
+          {appname: '13喵喵直播'},
+          {appname: '14喵喵直播'},
+          {appname: '15喵喵直播'},
+          {appname: '16喵喵直播'},]
+      };
+    },
+    methods: {
+      created() {
+        this.total = this.tableData.length;
+      },
+      // 当前页
+      current_change(currentPage) {
+        this.currentPage = currentPage;
+      }
+    },
+  };
+</script>
