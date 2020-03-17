@@ -22,6 +22,9 @@
          localStorage.setItem('arr', JSON.stringify(arr))
      }
      console.log(a);
+	 :data="ClassList.slice((currentPage1-1)*pagesize,currentPage1*pagesize)"
+	 currentPage1：0
+	 pagesize：10
  </script>
 </body>
 </html>
