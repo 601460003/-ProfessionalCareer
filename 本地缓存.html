@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+ <script>
+     let a = localStorage.getItem('arr')
+     if (a) {
+         let arr = JSON.parse(a)
+         arr.push({name: 'xiaoming'})
+         localStorage.setItem('arr', JSON.stringify(arr))
+         if (arr.length%10===0) {
+             if (true) {
+                 let arr = []
+                 localStorage.setItem('arr', JSON.stringify(arr))
+             }
+         }
+     } else {
+         let arr = [{name: '2'}]
+         localStorage.setItem('arr', JSON.stringify(arr))
+     }
+     console.log(a);
+ </script>
+</body>
+</html>
